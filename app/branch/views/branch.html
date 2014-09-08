@@ -1,0 +1,29 @@
+<div>
+  <h1>
+    {{branch.name}}
+  </h1>
+  <ul>
+    <li>{{branch.address}}</li>
+    <li>{{branch.city}}, {{branch.state}}</li>
+    <li ng-show="branch.phone">{{branch.phone}}</li>
+    <li>Type: {{branch.locType}}</li>
+    <li ng-show="branch.atms">ATMs: {{branch.atms}}</li>
+    <li ng-hide="branch.services.length === 0">
+      Services:
+      <ul>
+        <li ng-repeat="service in branch.services">
+          {{service}}
+        </li>
+      </ul>
+    </li>
+    <li ng-hide="!branch.lobbyHrs">
+      Hours:
+      <ul>
+        <li ng-repeat="hours in branch.lobbyHrs track by $index">
+          {{dayOfWeek[$index]}}: {{hours.length ? hours : 'Closed'}}
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</div>

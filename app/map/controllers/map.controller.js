@@ -1,5 +1,5 @@
 angular.module('chaseApp')
-  .controller('MapCtrl', function ($scope, Map) {
+  .controller('MapCtrl', function ($scope, Map, Branch, $state) {
     var userLocation = Map.geoLocation.coords;
     $scope.userLat = userLocation.latitude;
     $scope.userLng = userLocation.longitude;
@@ -15,10 +15,12 @@ angular.module('chaseApp')
             position: new google.maps.LatLng(item.lat, item.lng),
             icon: 'assets/images/google_map_markers/blue_Marker' + letter + '.png',
             map: map,
-            title: 'Chase - ' + item.name
+            title: 'Chase - ' + item.name,
+            info: item
           });
           google.maps.event.addListener(marker, 'click', function() {
-            alert('hello');
+            Branch.selectBranch(this.info);
+            $state.go('branch');
           });
         })
       });
