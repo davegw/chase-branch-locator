@@ -1,7 +1,9 @@
 angular.module('chaseApp')
   .controller('MapCtrl', function ($scope, Map) {
-    Map.getLocations(40, -83)
+    $scope.geoLocation = Map.geoLocation.coords;
+
+    Map.getLocations($scope.geoLocation.latitude, $scope.geoLocation.longitude)
       .then(function(results) {
-        $scope.locations = results.data.locations;
-      })
+        $scope.chaseLocations = results.data.locations;
+      });
   });

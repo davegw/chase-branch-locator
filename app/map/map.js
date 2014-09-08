@@ -4,6 +4,11 @@ angular.module('chaseApp')
       .state('map', {
         url: '/',
         templateUrl: 'app/map/views/map.html',
-        controller: 'MapCtrl'
+        controller: 'MapCtrl',
+        resolve: {
+          locationInit: function(Map) {
+            return Map.getGeoLocation();
+          }
+        }
       })
   });
