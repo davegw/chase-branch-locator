@@ -1,9 +1,13 @@
 angular.module('chaseApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('branch', {
+      .state('root.branch', {
         url: '/branch',
-        templateUrl: 'app/branch/views/branch.html',
-        controller: 'BranchCtrl'
-      })
+        views: {
+          'container@' : {
+            templateUrl: 'app/branch/views/branch.html',
+            controller: 'BranchCtrl' 
+          }
+        }
+      });
   });
