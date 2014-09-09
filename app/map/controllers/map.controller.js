@@ -24,7 +24,6 @@ angular.module('chaseApp')
       title: 'Current Location'
     });
 
-
     // For each nearby branch create a google marker and click event listener.
     function identifyNearbyBranches(branchArray) {
       $scope.chaseLocations = branchArray;

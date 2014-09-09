@@ -1,0 +1,45 @@
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+.chase-logo {
+  width: 30%;
+}
+.navbar {
+  margin: 0;
+}
+.footer {
+  border-top: 1px solid gray;
+  padding: 20px;
+  text-align: center;
+}
+#main-container {
+  margin: 0 30px;
+}
+.map {
+  width: 100%;
+}
+.map-large {
+  height: 500px;
+  margin-bottom: 30px;
+}
+.map-small {
+  height: 300px;
+}
+.branch-detail-header {
+  margin: 10px 0;
+}
+.branch-detail-subheading {
+  font-weight: bold;
+}
+.map-sm-container {
+  padding-right: 0;
+}
+.distance {
+  margin-bottom: 30px;
+}

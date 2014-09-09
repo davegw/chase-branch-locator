@@ -1,29 +1,62 @@
 <div>
-  <h1>
-    {{branch.name}}
-  </h1>
-  <ul>
-    <li>{{branch.address}}</li>
-    <li>{{branch.city}}, {{branch.state}}</li>
-    <li ng-show="branch.phone">{{branch.phone}}</li>
-    <li>Type: {{branch.locType}}</li>
-    <li ng-show="branch.atms">ATMs: {{branch.atms}}</li>
-    <li ng-hide="branch.services.length === 0">
-      Services:
-      <ul>
-        <li ng-repeat="service in branch.services">
-          {{service}}
+  <div class="row">
+    <h1 class="branch-detail-header text-center">
+      {{branch.name}}
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="row">
+            <p class="branch-detail-subheading text-right col-xs-3">Address:</p>
+            <div class="col-xs-9">
+              <p>{{branch.address}}</p>
+              <p>{{branch.city}}, {{branch.state}}</p>
+              <p ng-hide="!branch.phone">{{branch.phone}}</p>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <p class="branch-detail-subheading text-right col-xs-3">Type:</p>
+            <p class="col-xs-9">{{branch.locType}}</p>
+          </div>
+        </li>
+        <li class="list-group-item" ng-hide="!branch.lobbyHrs">
+          <div class="row">
+            <p class="branch-detail-subheading text-right col-xs-3">ATMs:</p>
+            <p class="col-xs-9">{{branch.atms}}</p>
+          </div>
+        </li>
+        <li class="list-group-item" ng-hide="!branch.services || branch.services.length === 0">
+          <div class="row">
+            <p class="branch-detail-subheading text-right col-xs-3">Services:</p>
+            <div class="col-xs-9">
+              <div class="row" ng-repeat="service in branch.services">
+                <p class="col-xs-12">{{service}}</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item" ng-hide="!branch.lobbyHrs">
+          <div class="row">
+            <p class="branch-detail-subheading text-right col-xs-3">Hours:</p>
+            <div class="col-xs-9">
+              <div class="row" ng-repeat="hours in branch.lobbyHrs track by $index">
+                <div class="col-xs-3 text-right">{{dayOfWeek[$index]}}: </div>
+                <div class="col-xs-9">{{hours.length ? hours : 'Closed'}}</div>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
-    </li>
-    <li ng-hide="!branch.lobbyHrs">
-      Hours:
-      <ul>
-        <li ng-repeat="hours in branch.lobbyHrs track by $index">
-          {{dayOfWeek[$index]}}: {{hours.length ? hours : 'Closed'}}
-        </li>
-      </ul>
-    </li>
-
-  </ul>
+    </div>
+    <div class="col-sm-6 map-sm-container">
+      <div id="map-canvas-sm" class="map map-small"></div>
+      <div class="row text-center distance">
+        <p>Distance to Branch: {{branch.distance}} mi</p>
+      </div>
+    </div>
+  </div>
 </div>
