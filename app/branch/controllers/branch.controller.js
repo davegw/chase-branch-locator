@@ -8,7 +8,7 @@ angular.module('chaseApp')
       center: new google.maps.LatLng($scope.branch.lat, $scope.branch.lng),
       zoom: 15
     };
-    var map = new google.maps.Map(document.getElementById("map-canvas-sm"), mapOptions);
+    var map = new google.maps.Map(document.getElementById('map-canvas-sm'), mapOptions);
 
     // Create marker for branch's location.
     var marker = new google.maps.Marker({

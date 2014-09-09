@@ -1,5 +1,6 @@
 angular.module('chaseApp')
   .controller('MapCtrl', function ($scope, Map, Branch, $state) {
+    // Set the user location to the coordinates returned.
     var userLocation = Map.geoLocation.coords;
     $scope.userLat = userLocation.latitude;
     $scope.userLng = userLocation.longitude;
@@ -15,7 +16,7 @@ angular.module('chaseApp')
       center: new google.maps.LatLng($scope.userLat, $scope.userLng),
       zoom: 15
     };
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
     // Create marker for user's location.
     var marker = new google.maps.Marker({
@@ -28,7 +29,6 @@ angular.module('chaseApp')
     function identifyNearbyBranches(branchArray) {
       $scope.chaseLocations = branchArray;
       var current = 'A'.charCodeAt();
-      console.log($scope.chaseLocations);
 
       _.each($scope.chaseLocations, function(branch) {
         var letter = String.fromCharCode(current++);
