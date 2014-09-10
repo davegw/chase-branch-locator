@@ -13,7 +13,7 @@
             <div class="col-xs-9">
               <p>{{branch.address}}</p>
               <p>{{branch.city}}, {{branch.state}}</p>
-              <p ng-hide="!branch.phone">{{branch.phone}}</p>
+              <p my-phone-style phone="branch.phone" ng-hide="!branch.phone">{{branch.phone}}</p>
             </div>
           </div>
         </li>

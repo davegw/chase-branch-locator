@@ -19,14 +19,13 @@ h1, h2, h3, h4, h5, p {
   text-align: center;
 }
 #main-container {
-  margin: 0 30px;
+  margin: 0 30px 30px 30px;
 }
 .map {
   width: 100%;
 }
 .map-large {
   height: 500px;
-  margin-bottom: 30px;
 }
 .map-small {
   height: 300px;
@@ -39,7 +38,4 @@ h1, h2, h3, h4, h5, p {
 }
 .map-sm-container {
   padding-right: 0;
-}
-.distance {
-  margin-bottom: 30px;
 }
